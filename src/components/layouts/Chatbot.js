@@ -6,7 +6,7 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import {
   ModeComment,
   Send,
@@ -59,12 +59,48 @@ const MessageThreadUser = (props) => {
 
 const Chatbot = () => {
   const [messages, setMessages] = useState([
-    { sender: "bot", message: "How can I help you" },
+    { sender: "bot", message: "How can I help you?" },
     {
       sender: "user",
       message: "What's the customer's name? ",
     },
   ]);
+
+  const [input, setInput] = useState("");
+
+  const messagesEndRef = useRef(null);
+
+  const scrollToBottom = () => {
+    console.log("=======>");
+    // messagesEndRef.current?.scrollIntoView({
+    //   behavior: "smooth",
+    //   block: "end",
+    // });
+
+    // Get the div element
+    let divElement = document.getElementById("scrollDiv");
+    // Scroll to the bottom of the div
+    divElement.scrollTop = divElement.scrollHeight;
+  };
+  useEffect(scrollToBottom, [messages]);
+
+  const handleChangeInput = (evt) => {
+    setInput(evt.target.value);
+  };
+
+  const handleClickSend = () => {
+    if (input === "") return;
+    const message = { sender: "user", message: input };
+
+    const arr = [...messages, message];
+    setMessages(arr);
+    setInput("");
+  };
+
+  const handleClickNewChat = () => {
+    setMessages([{ sender: "bot", message: "How can I help you" }]);
+  };
+
   return (
     <Box
       sx={{
@@ -90,6 +126,7 @@ const Chatbot = () => {
           tabIndex={-1}
           startIcon={<ModeComment />}
           sx={{ borderRadius: "20px" }}
+          onClick={handleClickNewChat}
         >
           New chat
         </Button>
@@ -97,7 +134,16 @@ const Chatbot = () => {
       <Box
         sx={{ height: "75%", backgroundColor: "#fff", borderRadius: "12px" }}
       >
-        <Box sx={{ height: "85%", padding: "10px" }}>
+        <Box
+          id="scrollDiv"
+          ref={messagesEndRef}
+          sx={{
+            height: "520px",
+            padding: "10px",
+            overflowY: "auto",
+            "&::-webkit-scrollbar": { display: "none" },
+          }}
+        >
           {messages.map((msg) =>
             msg.sender === "bot" ? (
               <MessageThreadBot message={msg.message} />
@@ -121,6 +167,12 @@ const Chatbot = () => {
             placeholder="Type your message here..."
             variant="filled"
             sx={{ width: "100%" }}
+            value={input}
+            onKeyDown={(evt) => {
+              evt.key === "Enter" && handleClickSend(evt);
+            }}
+            onChange={handleChangeInput}
+            autocomplete="off"
           />
           <IconButton
             // color="black"
@@ -132,6 +184,7 @@ const Chatbot = () => {
               backgroundColor: "#fff",
               color: "black",
             }}
+            onClick={handleClickSend}
           >
             <Send />
           </IconButton>
