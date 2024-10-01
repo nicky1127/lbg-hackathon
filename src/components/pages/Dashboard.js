@@ -4,6 +4,7 @@ import Header from "../abstract/Header";
 import Grid from "@mui/material/Grid2";
 import CustSentiment from "../layouts/CustSentiment";
 import Chatbot from "../layouts/Chatbot";
+import CustDetails from "../layouts/CustDetails";
 
 const Dashboard = () => {
   return (
@@ -22,7 +23,9 @@ const Dashboard = () => {
               <Grid size={4}>
                 <CustSentiment />
               </Grid>
-              <Grid size={4}>Customer Details</Grid>
+              <Grid size={4}>
+                <CustDetails />
+              </Grid>
               <Grid size={4}>Greetings</Grid>
             </Grid>
           </Box>

@@ -71,12 +71,6 @@ const Chatbot = () => {
   const messagesEndRef = useRef(null);
 
   const scrollToBottom = () => {
-    console.log("=======>");
-    // messagesEndRef.current?.scrollIntoView({
-    //   behavior: "smooth",
-    //   block: "end",
-    // });
-
     // Get the div element
     let divElement = document.getElementById("scrollDiv");
     // Scroll to the bottom of the div
@@ -98,7 +92,7 @@ const Chatbot = () => {
   };
 
   const handleClickNewChat = () => {
-    setMessages([{ sender: "bot", message: "How can I help you" }]);
+    setMessages([{ sender: "bot", message: "How can I help you?" }]);
   };
 
   return (
@@ -142,6 +136,9 @@ const Chatbot = () => {
             padding: "10px",
             overflowY: "auto",
             "&::-webkit-scrollbar": { display: "none" },
+            // display: "flex",
+            // flexDirection: "column",
+            // justifyContent: "flex-end",
           }}
         >
           {messages.map((msg) =>
