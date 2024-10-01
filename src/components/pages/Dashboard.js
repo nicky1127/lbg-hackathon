@@ -3,6 +3,7 @@ import React from "react";
 import Header from "../abstract/Header";
 import Grid from "@mui/material/Grid2";
 import CustSentiment from "../layouts/CustSentiment";
+import WelcomeConv from "../layouts/WelcomeConv";
 
 const Dashboard = () => {
   return (
@@ -18,7 +19,7 @@ const Dashboard = () => {
         <Grid size={4}>
           <CustSentiment />
         </Grid>
-        <Grid size={4}></Grid>
+        <Grid size={4}> <WelcomeConv /></Grid>
         <Grid size={4}></Grid>
         <Grid size={12}></Grid>
       </Grid>
