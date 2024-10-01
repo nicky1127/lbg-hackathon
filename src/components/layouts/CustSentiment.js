@@ -10,6 +10,7 @@ const CustSentiment = () => {
         overflow: "hidden",
         padding: "20px",
       }}
+      elevation={12}
     >
       <Typography
         sx={{ fontSize: "20px", marginBottom: "10px", textAlign: "left" }}

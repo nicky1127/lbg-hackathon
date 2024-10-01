@@ -3,6 +3,8 @@ import React from "react";
 import Header from "../abstract/Header";
 import Grid from "@mui/material/Grid2";
 import CustSentiment from "../layouts/CustSentiment";
+import Chatbot from "../layouts/Chatbot";
+import CustDetails from "../layouts/CustDetails";
 import WelcomeConv from "../layouts/WelcomeConv";
 
 const Dashboard = () => {
@@ -15,13 +17,25 @@ const Dashboard = () => {
       }}
     >
       <Header />
-      <Grid container spacing={2} sx={{ margin: "50px" }}>
-        <Grid size={4}>
-          <CustSentiment />
+      <Grid container spacing={2} sx={{ padding: "50px", height: "90vh" }}>
+
+        <Grid size={12}> <WelcomeConv /></Grid>
+        <Grid size={9}>
+          <Box>
+            <Grid container spacing={2} sx={{ margin: "5px" }}>
+              <Grid size={4}>
+                <CustSentiment />
+              </Grid>
+              <Grid size={4}>
+                <CustDetails />
+              </Grid>
+              <Grid size={4}>Greetings</Grid>
+            </Grid>
+          </Box>
         </Grid>
-        <Grid size={4}> <WelcomeConv /></Grid>
-        <Grid size={4}></Grid>
-        <Grid size={12}></Grid>
+        <Grid size={3}>
+          <Chatbot />
+        </Grid>
       </Grid>
     </Box>
   );
