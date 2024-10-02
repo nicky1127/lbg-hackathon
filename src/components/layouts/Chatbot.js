@@ -132,7 +132,7 @@ const Chatbot = () => {
           id="scrollDiv"
           ref={messagesEndRef}
           sx={{
-            height: "520px",
+            height: "380px",
             padding: "10px",
             overflowY: "auto",
             "&::-webkit-scrollbar": { display: "none" },
