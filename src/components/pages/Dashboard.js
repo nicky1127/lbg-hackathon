@@ -40,7 +40,7 @@ const Dashboard = () => {
               <Grid size={6}>
                 <Greeting
                   speed={40}
-                  text={`Hi, Mr. Smith. Thanks for your patience. I'd like to wish you a happy birthday! 🍰`}
+                  text={`Thank you for calling Lloyds banking Group today, before i take a look at your query, I'd like to wish you a happy birthday! 🍰`}
                 />
               </Grid>
             </Grid>
