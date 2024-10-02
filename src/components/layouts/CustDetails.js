@@ -49,9 +49,16 @@ const CustDetails = () => {
       }}
       elevation={12}
     >
-      {details.map((el) => (
+      {/* {details.map((el) => (
         <DetailsItem value={el.value} Icon={el.icon} />
-      ))}
+      ))} */}
+
+      <Typography variant="h5">Call Overview</Typography>
+      <Typography variant="body1">
+        The customer is callling to order a credit card statement, as the
+        previous advisor couldn't resolve the issue, the customer was
+        transferred.
+      </Typography>
     </Paper>
   );
 };

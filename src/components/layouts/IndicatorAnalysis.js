@@ -4,7 +4,7 @@ import {
   QueryBuilder,
   PsychologyAlt,
 } from "@mui/icons-material";
-import { Box, Paper, Typography } from "@mui/material";
+import { Box, Chip, Paper, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
 
 const DetailsItem = (props) => {
@@ -69,7 +69,13 @@ const IndicatorAnalysis = (props) => {
       }}
       elevation={12}
     >
-      <Typography variant="h5">Support Needs & Indicators Analysis</Typography>
+      <Typography variant="h5">Customer Needs </Typography>
+      <Chip
+        label="hearing-impaired"
+        variant="outlined"
+        sx={{ marginRight: "5px" }}
+      />
+      <Chip label="Italian speaking" variant="outlined" />
       <Typography variant="body1">{displayedText}</Typography>
     </Paper>
   );

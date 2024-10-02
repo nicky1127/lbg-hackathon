@@ -10,6 +10,7 @@ import WelcomeConv from "../layouts/WelcomeConv";
 
 import Greeting from "../layouts/Greeting";
 import IndicatorAnalysis from "../layouts/IndicatorAnalysis";
+import HistoryTimeline from "../layouts/HistoryTimeline";
 
 const Dashboard = () => {
   return (
@@ -26,43 +27,40 @@ const Dashboard = () => {
           {" "}
           <WelcomeConv />
         </Grid> */}
-        <Grid size={9}>
+        <Grid size={5}>
           <Box sx={{ marginBottom: "40px" }}>
             <Grid container spacing={2} sx={{ margin: "5px" }}>
               <Grid size={12}>
                 <WelcomeConv />
               </Grid>
-              <Grid size={4}>
+              <Grid size={6}>
                 <CustSentiment />
               </Grid>
-              <Grid size={4}>
-                <CustDetails />
-              </Grid>
-              <Grid size={4}>
+
+              <Grid size={6}>
                 <Greeting
                   speed={40}
-                  text={`Hi, Mr. Smith. Thanks for your patience.`}
+                  text={`Hi, Mr. Smith. Thanks for your patience. I'd like to wish you a happy birthday! 🍰`}
                 />
               </Grid>
             </Grid>
           </Box>
           <Box>
             <Grid container spacing={2} sx={{ margin: "5px" }}>
-              <Grid size={8}>
+              <Grid size={6}>
+                <CustDetails />
+              </Grid>
+              <Grid size={6}>
                 <IndicatorAnalysis
                   speed={40}
-                  text={`Mr. Smith is a hearing-impaired person who has experienced a fraud
-        incident. Due to their hearing impairment, they rely on alternative
-        communication methods such as written text, email, or messaging, rather
-        than spoken language. English is not their first language, which may
-        create additional challenges in understanding complex information,
-        especially related to sensitive topics like fraud. As a result, they
-        might require the assistance of a translator to fully comprehend
-        communications in their native language.`}
+                  text={`Mr. is hearing-impaired and prefers text-based communication. As English is not their first language, they may need a translator to understand complex fraud-related information.`}
                 />
               </Grid>
             </Grid>
           </Box>
+        </Grid>
+        <Grid size={4}>
+          <HistoryTimeline />
         </Grid>
         <Grid size={3}>
           <Chatbot />
