@@ -5,8 +5,12 @@ import Grid from "@mui/material/Grid2";
 import CustSentiment from "../layouts/CustSentiment";
 import Chatbot from "../layouts/Chatbot";
 import CustDetails from "../layouts/CustDetails";
+
+import WelcomeConv from "../layouts/WelcomeConv";
+
 import Greeting from "../layouts/Greeting";
 import IndicatorAnalysis from "../layouts/IndicatorAnalysis";
+
 
 const Dashboard = () => {
   return (
@@ -19,6 +23,8 @@ const Dashboard = () => {
     >
       <Header />
       <Grid container spacing={2} sx={{ padding: "50px", height: "90vh" }}>
+
+        <Grid size={12}> <WelcomeConv /></Grid>
         <Grid size={9}>
           <Box sx={{ marginBottom: "40px" }}>
             <Grid container spacing={2} sx={{ margin: "5px" }}>
