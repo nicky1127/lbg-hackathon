@@ -14,6 +14,7 @@ import {
   SupportAgentSharp,
 } from "@mui/icons-material";
 import { green, orange } from "@mui/material/colors";
+import { imagePrefix } from "../abstract/MockImage";
 
 const MessageThreadBot = (props) => {
   const { message } = props;
@@ -30,7 +31,7 @@ const MessageThreadBot = (props) => {
           textAlign: "left",
         }}
       >
-        {message}
+        <img src={imagePrefix + message} height="300px" width="300px"></img>
       </Box>
     </Box>
   );
@@ -58,13 +59,7 @@ const MessageThreadUser = (props) => {
 };
 
 const Chatbot = () => {
-  const [messages, setMessages] = useState([
-    { sender: "bot", message: "How can I help you?" },
-    {
-      sender: "user",
-      message: "What's the customer's name? ",
-    },
-  ]);
+  const [messages, setMessages] = useState([]);
 
   const [input, setInput] = useState("");
 
@@ -82,13 +77,27 @@ const Chatbot = () => {
     setInput(evt.target.value);
   };
 
-  const handleClickSend = () => {
+  const handleClickSend = async () => {
     if (input === "") return;
     const message = { sender: "user", message: input };
 
     const arr = [...messages, message];
     setMessages(arr);
     setInput("");
+
+    const response = await fetch('http://34.147.195.29:5000/getImage', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ text: input }),
+    });
+
+    const data = await response.json();
+
+    const botMessage = { sender: "bot", message: data.content }
+
+    setMessages([...arr, botMessage])
   };
 
   const handleClickNewChat = () => {
