@@ -11,7 +11,6 @@ import WelcomeConv from "../layouts/WelcomeConv";
 import Greeting from "../layouts/Greeting";
 import IndicatorAnalysis from "../layouts/IndicatorAnalysis";
 
-
 const Dashboard = () => {
   return (
     <Box
@@ -23,11 +22,16 @@ const Dashboard = () => {
     >
       <Header />
       <Grid container spacing={2} sx={{ padding: "50px", height: "90vh" }}>
-
-        <Grid size={12}> <WelcomeConv /></Grid>
+        {/* <Grid size={12}>
+          {" "}
+          <WelcomeConv />
+        </Grid> */}
         <Grid size={9}>
           <Box sx={{ marginBottom: "40px" }}>
             <Grid container spacing={2} sx={{ margin: "5px" }}>
+              <Grid size={12}>
+                <WelcomeConv />
+              </Grid>
               <Grid size={4}>
                 <CustSentiment />
               </Grid>
