@@ -31,7 +31,11 @@ const MessageThreadBot = (props) => {
           textAlign: "left",
         }}
       >
-        <img src={imagePrefix + message} height="300px" width="300px"></img>
+        {message?.includes("How can") ? (
+          <div>{message}</div>
+        ) : (
+          <img src={imagePrefix + message} height="220px" width="220px"></img>
+        )}
       </Box>
     </Box>
   );
@@ -59,7 +63,9 @@ const MessageThreadUser = (props) => {
 };
 
 const Chatbot = () => {
-  const [messages, setMessages] = useState([]);
+  const [messages, setMessages] = useState([
+    { sender: "bot", message: "How can I help you?" },
+  ]);
 
   const [input, setInput] = useState("");
 
@@ -85,19 +91,19 @@ const Chatbot = () => {
     setMessages(arr);
     setInput("");
 
-    const response = await fetch('http://34.147.195.29:5000/getImage', {
-      method: 'POST',
+    const response = await fetch("http://34.147.195.29:5000/getImage", {
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({ text: input }),
     });
 
     const data = await response.json();
 
-    const botMessage = { sender: "bot", message: data.content }
+    const botMessage = { sender: "bot", message: data.content };
 
-    setMessages([...arr, botMessage])
+    setMessages([...arr, botMessage]);
   };
 
   const handleClickNewChat = () => {

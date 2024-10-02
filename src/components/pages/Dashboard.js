@@ -40,7 +40,7 @@ const Dashboard = () => {
               <Grid size={6}>
                 <Greeting
                   speed={40}
-                  text={`Thank you for calling Lloyds banking Group today, before i take a look at your query, I'd like to wish you a happy birthday! 🍰`}
+                  text={`Thanks you for calling Lloyds banking Group today, before i take a look at your query, I'd like to wish you a happy birthday! 🍰`}
                 />
               </Grid>
             </Grid>
@@ -53,7 +53,7 @@ const Dashboard = () => {
               <Grid size={6}>
                 <IndicatorAnalysis
                   speed={40}
-                  text={`Mr. is hearing-impaired and prefers text-based communication. As English is not their first language, they may need a translator to understand complex fraud-related information.`}
+                  text={`Mr. Smith is hearing-impaired and prefers text-based communication. As English is not their first language, they may need a translator to understand complex fraud-related information.`}
                 />
               </Grid>
             </Grid>

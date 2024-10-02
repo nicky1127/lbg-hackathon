@@ -76,7 +76,9 @@ const IndicatorAnalysis = (props) => {
         sx={{ marginRight: "5px" }}
       />
       <Chip label="Italian speaking" variant="outlined" />
-      <Typography variant="body1">{displayedText}</Typography>
+      <Typography variant="body1" sx={{ marginTop: "5px" }}>
+        {displayedText}
+      </Typography>
     </Paper>
   );
 };
